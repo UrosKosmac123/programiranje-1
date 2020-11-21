@@ -5,6 +5,7 @@
 # literarnih besedil, kot je na primer koroška narodna pripovedka *Hvaležni
 # medved*.
 ###############################################################################
+import re
 
 test_text = """Gori nekje v gorah, ne ve se več, ali je bilo pri Macigoju ali
 Naravniku, je šivala gospodinja v senci pod drevesom in zibala otroka. Naenkrat
@@ -25,7 +26,16 @@ medved. Zvrhano zibelko sladkih hrušk mi je prinesel za en sam izdrt trn"."""
 # >>> find_words(test_text, 'de')
 # {'izdere', 'debel', 'oddide', 'začudeno'}
 ###############################################################################
+#def find_words(niz,podniz):
+#    return set(re.findall("podniz",niz))
 
+def find_words(niz, podniz):
+    #pattern = re.compile(r'\s\w*' + podniz r'.\w*\s') 
+    #m1 = re.match(pattern, niz)  zacne iskat neko pojavitev v tekstu(na zacetku)
+    #m2 = re.search(pattern, niz)  zacne iskat neko pojavitev v tekstu(nekje)
+    #m3 = re.findall(pattern, niz)  vrne vse pojavitve
+    m3 = re.findall(pattern, niz) 
+    return m3
 
 ###############################################################################
 # 2) Sestavite funkcijo [find_prefix], ki vrne množico vseh besed, ki se
@@ -52,3 +62,13 @@ medved. Zvrhano zibelko sladkih hrušk mi je prinesel za en sam izdrt trn"."""
 # >>> double_letters('A volunteer is worth twenty pressed men.')
 # {'volunteer', 'pressed'}
 ###############################################################################
+#def double_letters(niz):
+#    pattern = re.compile(r'\b\w*(?P<char0>\w\d+)(?P<char1>\w)(?P=<char1>)(?P=char0)\w*\b')
+#    
+#    for match in re.finditer(pattern, niz):
+#        print(match.group(0))
+
+#    return {m.groupe(0) for m in re.finditer(pattern, niz)}
+
+
+#double_letters('A volunteer is worth twenty pressed men.')
